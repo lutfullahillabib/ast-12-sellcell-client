@@ -18,3 +18,7 @@ code {
 
 /*  */
 
+.active {
+  background-color: #570DF8;
+  color: white;
+}
