@@ -117,9 +117,29 @@ const Login = () => {
     const passwordHandler = () => {
         resetPassword(userEmail)
             .then(() => {
+
+                setLoginError("");
+
                 toast.success("Password Reset for Email sent, Please check your Email.");
+
+                reset();
+                setUserEmail('');
+
             })
-            .catch((error) => console.error(error));
+            .catch((error) => {
+                console.error('Error = ', error);
+
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                console.error(' errorCode = ', errorCode,
+                    '\n',
+                    ' errorMessage = ', errorMessage);
+
+                setLoginError(`Forgot Pass Error = ${errorCode}`);
+
+                toast.error(`Forgot Pass Error = ${errorCode}`);
+            });
     };
     const handelEmail = (e) => {
         // console.log(e.target.value)
