@@ -22,3 +22,7 @@ code {
   background-color: #570DF8;
   color: white;
 }
+
+.progress:indeterminate::after {
+  animation: progress-loading 1s infinite ease-in-out;
+}

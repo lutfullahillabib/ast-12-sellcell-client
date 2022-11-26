@@ -9,15 +9,15 @@ const Error = () => {
         <section>
 
             <div
-                className="w-full h-screen bg-cover bg-center bg-no-repeat"
+                className="w-full min-h-screen bg-cover bg-center bg-no-repeat"
                 style={{
                     backgroundImage: `url(${"https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"})`,
                 }}
             >
 
-                <div className="h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 flex items-center justify-center">
+                <div className="min-h-screen w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 flex items-center justify-center py-10">
 
-                    <div className=" bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 flex flex-col items-center justify-center text-white py-14 px-6 lg:px-14 w-11/12 lg:w-auto">
+                    <div className=" bg-gray-500 rounded-md bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 flex flex-col items-center justify-center text-white py-14 px-6 lg:px-14 w-10/12 ">
 
                         <h1 className="text-7xl font-serif">Error!</h1>
 
