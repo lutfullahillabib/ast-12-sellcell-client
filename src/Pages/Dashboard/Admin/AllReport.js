@@ -54,8 +54,7 @@ const AllReport = () => {
         );
 
         if (proceed) {
-            fetch(`https://ast-12-sellcell-server.vercel.app
-/reports/${report._id}`, {
+            fetch(`https://ast-12-sellcell-server.vercel.app/reports/${report._id}`, {
                 method: 'DELETE',
 
             })
@@ -64,8 +63,7 @@ const AllReport = () => {
                     if (data.deletedCount) {
 
 
-                        fetch(`https://ast-12-sellcell-server.vercel.app
-/products/${report.productId}`, {
+                        fetch(`https://ast-12-sellcell-server.vercel.app/products/${report.productId}`, {
                             method: 'DELETE',
 
                         })

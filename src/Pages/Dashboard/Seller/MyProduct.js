@@ -9,8 +9,7 @@ const MyProduct = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `https://ast-12-sellcell-server.vercel.app
-/dashboard/myProduct?email=${user?.email}`;
+    const url = `https://ast-12-sellcell-server.vercel.app/dashboard/myProduct?email=${user?.email}`;
 
     const {
 

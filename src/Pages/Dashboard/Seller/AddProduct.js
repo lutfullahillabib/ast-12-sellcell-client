@@ -76,378 +76,377 @@ const AddProduct = () => {
 
 
                     //   console.log(product);
-                    fetch("https://ast-12-sellcell-server.vercel.app
-                        / products", {
+                    fetch("https://ast-12-sellcell-server.vercel.app/products", {
                         method: "POST",
                         headers: {
-                        "content-type": "application/json",
-                    },
+                            "content-type": "application/json",
+                        },
                         body: JSON.stringify(product),
                     })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                toast.success(`Your Product is successfully Added..!`);
-                navigate("/dashboard/myProduct");
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log(data);
+                            toast.success(`Your Product is successfully Added..!`);
+                            navigate("/dashboard/myProduct");
+                        });
+                }
             });
-    }
-});
     };
 
-return (
+    return (
 
-    <section className="flex justify-center items-center py-10">
-        <div className="w-full">
-            <form
-                className="max-w-xl mx-auto"
-                onSubmit={handleSubmit(handleAddProduct)}
-            >
+        <section className="flex justify-center items-center py-10">
+            <div className="w-full">
+                <form
+                    className="max-w-xl mx-auto"
+                    onSubmit={handleSubmit(handleAddProduct)}
+                >
 
-                {/* sellerName */}
-                <div className="space-y-1 text-sm">
-
-                    <label htmlFor="sellerName" className="block dark:text-gray-400">
-                        Seller Name
-                    </label>
-
-                    <input
-                        type="text"
-
-                        {...register("sellerName")}
-
-                        name="sellerName"
-                        id="sellerName"
-                        defaultValue={user?.displayName}
-                        readOnly
-                        className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                    />
-
-                </div>
-
-                {/* productName */}
-                <div className="space-y-1 text-sm mt-5">
-
-                    <label htmlFor="productName" className="block dark:text-gray-400">
-                        Product Name
-                    </label>
-
-                    <input
-                        type="text"
-
-                        {...register("productName", {
-                            required: "Product Name is required",
-                        })}
-
-                        name="productName"
-                        id="productName"
-                        placeholder="Product Name"
-                        className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                    />
-
-                    {
-                        errors.productName &&
-                        <p className="text-red-600" role="alert">
-                            {errors.productName?.message}
-                        </p>
-                    }
-
-                </div>
-
-                {/* category_name */}
-                <div className="space-y-1 text-sm">
-
-                    <label htmlFor="category_name" className="block dark:text-gray-400">
-                        Select Category Name
-                    </label>
-
-                    <select
-
-                        {...register("category_name", {
-                            required: "Please Select your Category Name",
-                        })}
-
-                        id="category_name"
-                        className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                    // required
-                    >
-
-                        <option value={""} disabled hidden selected>
-                            Please Select your Category Name
-                        </option>
-
-                        <option value="Samsung">Samsung</option>
-
-                        <option value="Apple">Apple</option>
-
-                        <option value="Xiaomi">Xiaomi</option>
-
-                    </select>
-
-                    {
-                        errors.category_name &&
-                        <p className="text-red-600" role="alert">
-                            {errors.category_name?.message}
-                        </p>
-                    }
-
-                </div>
-
-
-                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-
-                    {/* originalPrice */}
+                    {/* sellerName */}
                     <div className="space-y-1 text-sm">
 
-                        <label
-                            htmlFor="originalPrice"
-                            className="block dark:text-gray-400"
-                        >
-                            Original Price
-                        </label>
-
-                        <input
-                            type="number"
-
-                            {...register("originalPrice", {
-                                required: "Original Price is required",
-                            })}
-
-                            name="originalPrice"
-                            id="originalPrice"
-                            placeholder="Original Price"
-                            className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                        />
-
-                        {errors.originalPrice &&
-                            <p className="text-red-600" role="alert">
-                                {errors.originalPrice?.message}
-                            </p>
-                        }
-
-                    </div>
-
-                    {/* resalePrice */}
-                    <div className="space-y-1 text-sm">
-
-                        <label htmlFor="resalePrice" className="block dark:text-gray-400">
-                            Resale Price
-                        </label>
-
-                        <input
-                            type="number"
-                            {...register("resalePrice", {
-                                required: "Resale Price is required",
-                            })}
-                            name="resalePrice"
-                            id="resalePrice"
-                            placeholder="Resale Price"
-                            className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                        />
-
-                        {errors.resalePrice &&
-                            <p className="text-red-600" role="alert">
-                                {errors.resalePrice?.message}
-                            </p>
-                        }
-
-                    </div>
-
-                    {/* purchase */}
-                    <div className="space-y-1 text-sm">
-
-                        <label htmlFor="purchase" className="block dark:text-gray-400">
-                            Year of Purchase
-                        </label>
-
-                        <input
-                            type="month"
-
-                            {...register("purchase", {
-                                required: "Purchase year is Required",
-                            })}
-
-                            name="purchase"
-                            id="purchase"
-                            placeholder="Year of Purchase"
-                            className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                        />
-
-                        {errors.purchase &&
-                            <p className="text-red-600" role="alert">
-                                {errors.purchase?.message}
-                            </p>
-                        }
-
-                    </div>
-
-                    {/* usedTime */}
-                    <div className="space-y-1 text-sm">
-
-                        <label htmlFor="usedTime" className="block dark:text-gray-400">
-                            Used Time
-                        </label>
-
-                        <input
-                            type="text"
-                            {...register("usedTime", {
-                                required: "Used Time is Required",
-                            })}
-                            name="usedTime"
-                            id="usedTime"
-                            placeholder="Used Time"
-                            className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                        />
-
-                        {errors.usedTime &&
-                            <p className="text-red-600" role="alert">
-                                {errors.usedTime?.message}
-                            </p>
-                        }
-
-                    </div>
-
-                    {/* shopLocation */}
-                    <div className="space-y-1 text-sm">
-
-                        <label htmlFor="shopLocation" className="block dark:text-gray-400">
-                            Shop Location
+                        <label htmlFor="sellerName" className="block dark:text-gray-400">
+                            Seller Name
                         </label>
 
                         <input
                             type="text"
 
-                            {...register("shopLocation", {
-                                required: "Shop Location is Required",
-                            })}
+                            {...register("sellerName")}
 
-                            name="shopLocation"
-                            id="shopLocation"
-                            placeholder="Shop Location"
+                            name="sellerName"
+                            id="sellerName"
+                            defaultValue={user?.displayName}
+                            readOnly
                             className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
                         />
 
-                        {errors.shopLocation &&
-                            <p className="text-red-600" role="alert">
-                                {errors.shopLocation?.message}
-                            </p>
-                        }
-
                     </div>
 
-                    {/* sellerPhone */}
-                    <div className="space-y-1 text-sm">
+                    {/* productName */}
+                    <div className="space-y-1 text-sm mt-5">
 
-                        <label htmlFor="sellerPhone" className="block dark:text-gray-400">
-                            Phone Number
+                        <label htmlFor="productName" className="block dark:text-gray-400">
+                            Product Name
                         </label>
 
                         <input
-                            type="tel"
+                            type="text"
 
-                            {...register("sellerPhone", {
-                                required: "Phone Number is Required",
+                            {...register("productName", {
+                                required: "Product Name is required",
                             })}
 
-                            name="sellerPhone"
-                            id="sellerPhone"
-                            placeholder="Phone Number"
+                            name="productName"
+                            id="productName"
+                            placeholder="Product Name"
                             className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
                         />
 
                         {
-                            errors.sellerPhone &&
+                            errors.productName &&
                             <p className="text-red-600" role="alert">
-                                {errors.sellerPhone?.message}
+                                {errors.productName?.message}
                             </p>
                         }
 
                     </div>
 
-                </div>
+                    {/* category_name */}
+                    <div className="space-y-1 text-sm">
 
-                {/* condition */}
-                <div className="space-y-1 text-sm">
+                        <label htmlFor="category_name" className="block dark:text-gray-400">
+                            Select Category Name
+                        </label>
 
-                    <label htmlFor="condition" className="block dark:text-gray-400">
-                        Select Product Condition
+                        <select
+
+                            {...register("category_name", {
+                                required: "Please Select your Category Name",
+                            })}
+
+                            id="category_name"
+                            className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                        // required
+                        >
+
+                            <option value={""} disabled hidden selected>
+                                Please Select your Category Name
+                            </option>
+
+                            <option value="Samsung">Samsung</option>
+
+                            <option value="Apple">Apple</option>
+
+                            <option value="Xiaomi">Xiaomi</option>
+
+                        </select>
+
+                        {
+                            errors.category_name &&
+                            <p className="text-red-600" role="alert">
+                                {errors.category_name?.message}
+                            </p>
+                        }
+
+                    </div>
+
+
+                    <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+
+                        {/* originalPrice */}
+                        <div className="space-y-1 text-sm">
+
+                            <label
+                                htmlFor="originalPrice"
+                                className="block dark:text-gray-400"
+                            >
+                                Original Price
+                            </label>
+
+                            <input
+                                type="number"
+
+                                {...register("originalPrice", {
+                                    required: "Original Price is required",
+                                })}
+
+                                name="originalPrice"
+                                id="originalPrice"
+                                placeholder="Original Price"
+                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                            />
+
+                            {errors.originalPrice &&
+                                <p className="text-red-600" role="alert">
+                                    {errors.originalPrice?.message}
+                                </p>
+                            }
+
+                        </div>
+
+                        {/* resalePrice */}
+                        <div className="space-y-1 text-sm">
+
+                            <label htmlFor="resalePrice" className="block dark:text-gray-400">
+                                Resale Price
+                            </label>
+
+                            <input
+                                type="number"
+                                {...register("resalePrice", {
+                                    required: "Resale Price is required",
+                                })}
+                                name="resalePrice"
+                                id="resalePrice"
+                                placeholder="Resale Price"
+                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                            />
+
+                            {errors.resalePrice &&
+                                <p className="text-red-600" role="alert">
+                                    {errors.resalePrice?.message}
+                                </p>
+                            }
+
+                        </div>
+
+                        {/* purchase */}
+                        <div className="space-y-1 text-sm">
+
+                            <label htmlFor="purchase" className="block dark:text-gray-400">
+                                Year of Purchase
+                            </label>
+
+                            <input
+                                type="month"
+
+                                {...register("purchase", {
+                                    required: "Purchase year is Required",
+                                })}
+
+                                name="purchase"
+                                id="purchase"
+                                placeholder="Year of Purchase"
+                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                            />
+
+                            {errors.purchase &&
+                                <p className="text-red-600" role="alert">
+                                    {errors.purchase?.message}
+                                </p>
+                            }
+
+                        </div>
+
+                        {/* usedTime */}
+                        <div className="space-y-1 text-sm">
+
+                            <label htmlFor="usedTime" className="block dark:text-gray-400">
+                                Used Time
+                            </label>
+
+                            <input
+                                type="text"
+                                {...register("usedTime", {
+                                    required: "Used Time is Required",
+                                })}
+                                name="usedTime"
+                                id="usedTime"
+                                placeholder="Used Time"
+                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                            />
+
+                            {errors.usedTime &&
+                                <p className="text-red-600" role="alert">
+                                    {errors.usedTime?.message}
+                                </p>
+                            }
+
+                        </div>
+
+                        {/* shopLocation */}
+                        <div className="space-y-1 text-sm">
+
+                            <label htmlFor="shopLocation" className="block dark:text-gray-400">
+                                Shop Location
+                            </label>
+
+                            <input
+                                type="text"
+
+                                {...register("shopLocation", {
+                                    required: "Shop Location is Required",
+                                })}
+
+                                name="shopLocation"
+                                id="shopLocation"
+                                placeholder="Shop Location"
+                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                            />
+
+                            {errors.shopLocation &&
+                                <p className="text-red-600" role="alert">
+                                    {errors.shopLocation?.message}
+                                </p>
+                            }
+
+                        </div>
+
+                        {/* sellerPhone */}
+                        <div className="space-y-1 text-sm">
+
+                            <label htmlFor="sellerPhone" className="block dark:text-gray-400">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+
+                                {...register("sellerPhone", {
+                                    required: "Phone Number is Required",
+                                })}
+
+                                name="sellerPhone"
+                                id="sellerPhone"
+                                placeholder="Phone Number"
+                                className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                            />
+
+                            {
+                                errors.sellerPhone &&
+                                <p className="text-red-600" role="alert">
+                                    {errors.sellerPhone?.message}
+                                </p>
+                            }
+
+                        </div>
+
+                    </div>
+
+                    {/* condition */}
+                    <div className="space-y-1 text-sm">
+
+                        <label htmlFor="condition" className="block dark:text-gray-400">
+                            Select Product Condition
+                        </label>
+
+                        <select
+
+                            {...register("condition", {
+                                required: "Please Select Product Condition",
+                            })}
+
+                            id="condition"
+                            className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
+                        // required
+                        >
+
+                            <option value={""} disabled hidden selected>
+                                Select Product Condition
+                            </option>
+
+                            <option value="Excellent">Excellent</option>
+
+                            <option value="Good">Good</option>
+
+                            <option value="Fair">Fair</option>
+
+                        </select>
+
+                        {
+                            errors.condition &&
+                            <p className="text-red-600" role="alert">
+                                {errors.condition?.message}
+                            </p>
+                        }
+
+                    </div>
+
+                    {/* Image File */}
+                    <label
+                        htmlFor="dropzone-file"
+                        className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border dark:border-gray-700  rounded-md cursor-pointer "
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-6 h-6 text-gray-300 dark:text-gray-500"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                            />
+                        </svg>
+
+                        <h2 className="mx-3 text-gray-400">Product Photo</h2>
+
+                        <input
+
+                            {...register("url", {
+                                required: "Image is required",
+                            })}
+
+                            id="dropzone-file"
+                            type="file"
+                            className="hidden"
+                        />
+
                     </label>
 
-                    <select
-
-                        {...register("condition", {
-                            required: "Please Select Product Condition",
-                        })}
-
-                        id="condition"
-                        className="w-full px-4 py-3 rounded-md border dark:border-gray-700  dark:text-gray-700 focus:dark:border-violet-400"
-                    // required
-                    >
-
-                        <option value={""} disabled hidden selected>
-                            Select Product Condition
-                        </option>
-
-                        <option value="Excellent">Excellent</option>
-
-                        <option value="Good">Good</option>
-
-                        <option value="Fair">Fair</option>
-
-                    </select>
-
                     {
-                        errors.condition &&
+                        errors.url &&
                         <p className="text-red-600" role="alert">
-                            {errors.condition?.message}
+                            {errors.url?.message}
                         </p>
                     }
 
-                </div>
-
-                {/* Image File */}
-                <label
-                    htmlFor="dropzone-file"
-                    className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border dark:border-gray-700  rounded-md cursor-pointer "
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6 text-gray-300 dark:text-gray-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                        />
-                    </svg>
-
-                    <h2 className="mx-3 text-gray-400">Product Photo</h2>
-
-                    <input
-
-                        {...register("url", {
-                            required: "Image is required",
-                        })}
-
-                        id="dropzone-file"
-                        type="file"
-                        className="hidden"
-                    />
-
-                </label>
-
-                {
-                    errors.url &&
-                    <p className="text-red-600" role="alert">
-                        {errors.url?.message}
-                    </p>
-                }
-
-                {/* description */}
-                {/* <div className="space-y-1 text-sm  mt-5">
+                    {/* description */}
+                    {/* <div className="space-y-1 text-sm  mt-5">
                         <label htmlFor="description" className="block dark:text-gray-400">
                             Description
                         </label>
@@ -470,21 +469,21 @@ return (
                     </div> */}
 
 
-                <button className="text-white bg-info hover:bg-accent hover:text-white focus:ring-4 focus:outline-none focus:ring-info font-medium rounded-lg  px-5 py-2.5 text-center duration-1000 hover:px-10 hover:font-semibold justify-center my-5 w-full flex">
-                    Submit
-                </button>
+                    <button className="text-white bg-info hover:bg-accent hover:text-white focus:ring-4 focus:outline-none focus:ring-info font-medium rounded-lg  px-5 py-2.5 text-center duration-1000 hover:px-10 hover:font-semibold justify-center my-5 w-full flex">
+                        Submit
+                    </button>
 
 
-            </form>
+                </form>
 
 
-        </div>
+            </div>
 
 
-    </section>
+        </section>
 
 
-);
+    );
 };
 
 export default AddProduct;
