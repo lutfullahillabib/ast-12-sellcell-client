@@ -99,7 +99,7 @@ const Navbar = () => {
     </React.Fragment>
 
     return (
-        <section className='w-11/12 mx-auto '>
+        <section className='w-11/12 mx-auto shadow-xl'>
             <div className="navbar  flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">

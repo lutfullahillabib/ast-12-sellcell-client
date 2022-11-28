@@ -147,12 +147,12 @@ const Login = () => {
     };
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 items-center py-20'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 items-center py-20 '>
 
             <Lottie animationData={log} loop={true} className='w-[80%] mx-auto' />
 
 
-            <div className="w-11/12 mx-auto md:w-full max-w-md p-8 space-y-3 rounded-xl bg-primary text-black cus-svg-login">
+            <div className="w-11/12 mx-auto md:w-full max-w-md p-8 space-y-3 rounded-xl bg-primary shadow-2xl text-black cus-svg-login">
 
                 <h1 className="text-2xl font-bold text-center">Login</h1>
 

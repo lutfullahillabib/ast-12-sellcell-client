@@ -7,7 +7,7 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 const Main = () => {
     return (
         <div>
-            <div className='bg-primary'>
+            <div className='bg-primary shadow-xl'>
                 <Navbar></Navbar>
             </div>
             <div className='w-11/12 mx-auto'>
