@@ -1,3 +1,57 @@
+
+# Assignment 12 = SellCell
+
+This Assignment is used by react and firebase and mongodb & database & toastify. i hope this Assignment is good. I have tried my best in this Assignment.
+## Features
+
+- Details
+- login/register system
+- Responsive
+- Log out system
+- database sort
+- dynamic route
+- Redirect
+- delete and update
+
+
+## Installation
+
+Install react with npx
+
+  npx create-react-app Classic Mobile
+  cd Classic Mobile
+Install TailwindCSS with npm
+  npm install -D tailwindcss postcss autoprefixer
+  npx tailwindcss init -p
+Install Firebase with npm
+  npm install firebase
+Install Stripe with npm
+  npm install stripe --save
+
+## Tech Stack
+
+*Client:* React, TailwindCSS, Firebase,
+
+*Server:* Node, Express, MongoDB, dotenv,cors
+
+
+## 🔗 Links
+- [live SIte](https://ast-12-sellcell.web.app/)
+---
+- [client-site]( https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-lutfullahillabib)
+---
+- [Server-Site](https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-lutfullahillabib)
+
+
+Live Link = https://ast-12-sellcell.web.app/
+or,
+https://ast-12-sellcell.firebaseapp.com/
+
+---
+---
+---
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
