@@ -6,7 +6,8 @@ import User from './User';
 
 const Seller = () => {
 
-    const sellerUrl = "http://localhost:5000/allUsers/Seller";
+    const sellerUrl = "https://ast-12-sellcell-server.vercel.app
+        / allUsers / Seller";
 
     const { data: seller, refetch, isLoading } = useQuery({
         queryKey: ["seller"],
@@ -23,7 +24,8 @@ const Seller = () => {
         const proceed = window.confirm("Are you sure, you want to cancel this order ?");
 
         if (proceed) {
-            fetch(`http://localhost:5000/user/${id}`, {
+            fetch(`https://ast-12-sellcell-server.vercel.app
+/user/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
@@ -44,7 +46,8 @@ const Seller = () => {
 
         // console.log(id);
 
-        fetch(`http://localhost:5000/user/verify/${id}`, {
+        fetch(`https://ast-12-sellcell-server.vercel.app
+/user/verify/${id}`, {
             method: "PUT",
         })
             .then((res) => res.json())
