@@ -41,7 +41,7 @@ const BookingModal = ({ modalData, setModalData }) => {
         };
 
 
-        fetch("https://ast-12-sellcell-server.vercel.app/bookProduct", {
+        fetch("http://localhost:5000/bookProduct", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

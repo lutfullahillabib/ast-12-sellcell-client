@@ -6,7 +6,7 @@ import User from "./User";
 
 const Buyer = () => {
 
-    const buyerUrl = "https://ast-12-sellcell-server.vercel.app/allUsers/Buyer";
+    const buyerUrl = "http://localhost:5000/allUsers/Buyer";
 
     const {
         data: buyer,
@@ -26,7 +26,7 @@ const Buyer = () => {
         const proceed = window.confirm("Are you sure, you want to cancel this order ?");
 
         if (proceed) {
-            fetch(`https://ast-12-sellcell-server.vercel.app/user/${id}`, {
+            fetch(`http://localhost:5000/user/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

@@ -19,7 +19,7 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'https://ast-12-sellcell-server.vercel.app/myAdvertise/true',
+                'http://localhost:5000/myAdvertise/true',
             );
             setData(result.data);
 

@@ -94,7 +94,7 @@ const Login = () => {
 
     const saveUser = (name, email, photoURL, role = "Buyer", verify = "false") => {
         const user = { name, email, photoURL, role, verify };
-        fetch('https://ast-12-sellcell-server.vercel.app/user', {
+        fetch('http://localhost:5000/user', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

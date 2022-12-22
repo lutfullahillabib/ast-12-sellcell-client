@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const CheckOutForm = ({ orders }) => {
     const [cardError, setCardError] = useState("");
@@ -10,14 +11,15 @@ const CheckOutForm = ({ orders }) => {
     const stripe = useStripe();
     const elements = useElements();
 
-    const { resalePrice, email, username, _id } = orders;
+    const { resalePrice, email, username, _id, productId } = orders;
 
+    console.log(productId);
     console.log(orders);
     console.log(username);
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://ast-12-sellcell-server.vercel.app/create-payment-intent", {
+        fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -74,7 +76,7 @@ const CheckOutForm = ({ orders }) => {
                 bookingId: _id,
             };
 
-            fetch("https://ast-12-sellcell-server.vercel.app/payments", {
+            fetch("http://localhost:5000/payments", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -93,6 +95,19 @@ const CheckOutForm = ({ orders }) => {
         }
         setProcessing(false);
         console.log(paymentIntent);
+    };
+
+    const handleSold = (id) => {
+        fetch(`http://localhost:5000/soldProduct/sold/${id}`, {
+            method: "PUT",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success("paid successful.");
+                }
+            });
     };
 
     return (
@@ -160,6 +175,8 @@ const CheckOutForm = ({ orders }) => {
                 <button
                     className="btn btn-sm mt-8 btn-primary text-white "
                     type="submit"
+
+                    onClick={() => handleSold(productId)}
 
                     // disabled={!stripe ||   processing}
 

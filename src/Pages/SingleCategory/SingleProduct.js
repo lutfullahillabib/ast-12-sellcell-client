@@ -23,6 +23,8 @@ const SingleProduct = ({ product, setModalData, setReportModalData }) => {
 
         verify,
 
+        sold
+
     } = product;
 
 
@@ -122,8 +124,23 @@ const SingleProduct = ({ product, setModalData, setReportModalData }) => {
 
                         <div className='mt-5 flex justify-center'>
 
+                            {
+                                sold ?
+                                    (
+                                        <button
+                                           
+                                            className="btn text-center w-full mt-4 rounded-sm py-3 bg-[#ffbd5993] border-none"
 
-                            <label onClick={() => setModalData(product)} htmlFor="BookingModal" className="text-white bg-info hover:bg-accent hover:text-white focus:ring-4 focus:outline-none focus:ring-info font-medium rounded-lg  px-5 py-2.5 text-center duration-1000 hover:px-10 hover:font-semibold">Book Now</label>
+                                            disabled
+                                        >
+                                            Sold
+                                        </button>
+                                    )
+
+                                    :
+
+                                    <label onClick={() => setModalData(product)} htmlFor="BookingModal" className="text-white bg-info hover:bg-accent hover:text-white focus:ring-4 focus:outline-none focus:ring-info font-medium rounded-lg  px-5 py-2.5 text-center duration-1000 hover:px-10 hover:font-semibold">Book Now</label>
+                            }
 
 
                         </div>

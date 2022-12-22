@@ -9,7 +9,7 @@ const MyOrders = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `https://ast-12-sellcell-server.vercel.app/orders?email=${user?.email}`;
+    const url = `http://localhost:5000/orders?email=${user?.email}`;
 
     const { data: myOrders = [], isLoading, refetch } = useQuery({
         queryKey: ["orders", user?.email],
@@ -25,7 +25,7 @@ const MyOrders = () => {
         const proceed = window.confirm("Are you sure? You want to Remove This Order ?");
 
         if (proceed) {
-            fetch(`https://ast-12-sellcell-server.vercel.app/orders/${id}`, {
+            fetch(`http://localhost:5000/orders/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

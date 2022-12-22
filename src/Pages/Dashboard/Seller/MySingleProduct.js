@@ -13,7 +13,7 @@ const MySingleProduct = ({ product, refetch }) => {
         const proceed = window.confirm("Are you sure, you want to cancel this order ?");
 
         if (proceed) {
-            fetch(`https://ast-12-sellcell-server.vercel.app/products/${id}`, {
+            fetch(`http://localhost:5000/products/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
@@ -51,7 +51,7 @@ const MySingleProduct = ({ product, refetch }) => {
     //     console.log(advertiseProduct);
 
 
-    //     fetch('https://ast-12-sellcell-server.vercel.app/advertise', {
+    //     fetch('http://localhost:5000/advertise', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json'
@@ -72,7 +72,7 @@ const MySingleProduct = ({ product, refetch }) => {
 
         // console.log(product)
 
-        fetch(`https://ast-12-sellcell-server.vercel.app/myAdvertise/${product._id}`, {
+        fetch(`http://localhost:5000/myAdvertise/${product._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -94,6 +94,28 @@ const MySingleProduct = ({ product, refetch }) => {
             })
     }
 
+    const removeAdvertise = (product) => {
+        const id = product._id;
+        // console.log(id);
+        fetch(`http://localhost:5000/myAdvertiseRemove/${id}`, {
+            method: "PUT",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success("Advertise Removed SuccessFully");
+                    refetch();
+                }
+                
+                else if (data.matchedCount > 0) {
+                    console.log(data);
+                    toast.error("Already Removed");
+                    refetch();
+                }
+            });
+    };
+
 
 
     const {
@@ -114,7 +136,9 @@ const MySingleProduct = ({ product, refetch }) => {
         sellerPhone,
         Time,
 
-        advertise
+        advertise,
+
+        sold,
 
     } = product;
 
@@ -147,7 +171,40 @@ const MySingleProduct = ({ product, refetch }) => {
 
                         <div className=' flex justify-between pt-4'>
 
-                            <p onClick={() => handelAdvertise(product)} className='flex gap-2 items-center text-info bg-white p-2 rounded-xl hover:bg-black duration-1000 hover:text-white cursor-pointer'> Advertise: <AiOutlineVideoCameraAdd className='text-2xl' /></p>
+                            <p className="inline-block font-semibold text-black whitespace-nowrap leading-tight rounded-xl">
+
+                                {
+                                    sold === true ?
+                                        (
+                                            <p>This Product is Sold</p>
+                                        )
+                                        :
+                                        (
+                                            <>
+                                                {
+                                                    advertise === 'true'
+                                                        ?
+                                                        (
+                                                            <button onClick={() => removeAdvertise(product)}>
+                                                                Remove from advertise
+                                                            </button>
+                                                        )
+
+                                                        :
+
+                                                        (
+
+                                                            <p onClick={() => handelAdvertise(product)} className='flex gap-2 items-center text-info bg-white p-2 rounded-xl hover:bg-black duration-1000 hover:text-white cursor-pointer'> Advertise: <AiOutlineVideoCameraAdd className='text-2xl' /></p>
+
+                                                        )
+                                                }
+                                            </>
+                                        )
+                                }
+
+                            </p>
+
+                            {/* <p onClick={() => handelAdvertise(product)} className='flex gap-2 items-center text-info bg-white p-2 rounded-xl hover:bg-black duration-1000 hover:text-white cursor-pointer'> Advertise: <AiOutlineVideoCameraAdd className='text-2xl' /></p> */}
 
                             <button onClick={() => handleDelete(product)} className="text-white bg-red-600 hover:bg-accent hover:text-white focus:ring-4 focus:outline-none focus:ring-info font-medium rounded-lg  px-5 py-2.5 text-center duration-1000 hover:px-10 hover:font-semibold"> Delete </button>
 

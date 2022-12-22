@@ -9,7 +9,7 @@ const AllUser = () => {
     const { data: users, isLoading, refetch } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
-            const res = await fetch(`https://ast-12-sellcell-server.vercel.app/user`);
+            const res = await fetch(`http://localhost:5000/user`);
             const data = await res.json();
             return data;
         },
@@ -22,7 +22,7 @@ const AllUser = () => {
         const proceed = window.confirm("Are you sure, you want to cancel this User ?");
 
         if (proceed) {
-            fetch(`https://ast-12-sellcell-server.vercel.app/user/${id}`, {
+            fetch(`http://localhost:5000/user/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
@@ -45,7 +45,7 @@ const AllUser = () => {
 
         // console.log(id);
 
-        fetch(`https://ast-12-sellcell-server.vercel.app/user/verify/${id}`, {
+        fetch(`http://localhost:5000/user/verify/${id}`, {
             method: "PUT",
         })
             .then((res) => res.json())

@@ -24,7 +24,7 @@ const ReportModal = ({ reportModalData, setReportModalData }) => {
         };
 
 
-        fetch("https://ast-12-sellcell-server.vercel.app/reports", {
+        fetch("http://localhost:5000/reports", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

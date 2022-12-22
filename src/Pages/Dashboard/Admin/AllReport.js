@@ -12,7 +12,7 @@ const AllReport = () => {
     } = useQuery({
         queryKey: ["reports"],
         queryFn: async () => {
-            const res = await fetch("https://ast-12-sellcell-server.vercel.app/reports");
+            const res = await fetch("http://localhost:5000/reports");
             const data = await res.json();
             return data;
         },
@@ -30,7 +30,7 @@ const AllReport = () => {
         const proceed = window.confirm("You want to Delete This Report ?");
 
         if (proceed) {
-            fetch(`https://ast-12-sellcell-server.vercel.app/reports/${id}`, {
+            fetch(`http://localhost:5000/reports/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
@@ -54,7 +54,7 @@ const AllReport = () => {
         );
 
         if (proceed) {
-            fetch(`https://ast-12-sellcell-server.vercel.app/reports/${report._id}`, {
+            fetch(`http://localhost:5000/reports/${report._id}`, {
                 method: 'DELETE',
 
             })
@@ -63,7 +63,7 @@ const AllReport = () => {
                     if (data.deletedCount) {
 
 
-                        fetch(`https://ast-12-sellcell-server.vercel.app/products/${report.productId}`, {
+                        fetch(`http://localhost:5000/products/${report.productId}`, {
                             method: 'DELETE',
 
                         })

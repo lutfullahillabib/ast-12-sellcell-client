@@ -129,7 +129,9 @@ const Footer = () => {
 
                 </div>
 
-                <div className="py-6 text-center text-white font-semibold text-lg">Copyright &copy; {new Date().getFullYear()} SellCell. All rights reserved by SellCell.</div>
+                <div className="py-6 text-center text-white font-semibold text-lg">
+                    Copyright &copy; {new Date().getFullYear()} SellCell. All rights reserved by SellCell.
+                </div>
 
             </footer>
 

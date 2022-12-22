@@ -91,7 +91,7 @@ const SignUp = () => {
 
     const saveUser = (name, email, photoURL, role, verify = "false") => {
         const user = { name, email, photoURL, role, verify };
-        fetch('https://ast-12-sellcell-server.vercel.app/user', {
+        fetch('http://localhost:5000/user', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
