@@ -2,6 +2,9 @@
 # Assignment 12 = SellCell
 
 This Assignment is used by react and firebase and mongodb & database & toastify. i hope this Assignment is good. I have tried my best in this Assignment.
+
+## Admin Info ( admin@g.com ) [ Password = 123456A@ ]
+
 ## Features
 
 - Details
