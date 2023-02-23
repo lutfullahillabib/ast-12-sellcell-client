@@ -15,7 +15,7 @@ const useAdmin = (email) => {
 
             // console.log(email);
 
-            fetch(`http://localhost:5000/user/admin/${email}`)
+            fetch(`https://ast-12-sellcell-server.vercel.app/user/admin/${email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     //   console.log(data);

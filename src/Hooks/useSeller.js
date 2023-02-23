@@ -13,7 +13,7 @@ const useSeller = (email) => {
         if (email) {
 
             // console.log(email);
-            fetch(`http://localhost:5000/user/seller/${email}`)
+            fetch(`https://ast-12-sellcell-server.vercel.app/user/seller/${email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);

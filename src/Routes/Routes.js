@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             {
                 path: "/category/:category_name",
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/category/${params.category_name}`);
+                    return fetch(`https://ast-12-sellcell-server.vercel.app/category/${params.category_name}`);
                 },
                 element: (
                     <PrivateRoute>
@@ -133,7 +133,7 @@ const router = createBrowserRouter([
                 path: "/dashboard/payment/:id",
                 element: <Payment></Payment>,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/orders/${params.id}`),
+                    fetch(`https://ast-12-sellcell-server.vercel.app/orders/${params.id}`),
             },
 
 

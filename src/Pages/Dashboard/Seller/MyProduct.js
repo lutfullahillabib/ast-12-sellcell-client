@@ -9,7 +9,7 @@ const MyProduct = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/dashboard/myProduct?email=${user?.email}`;
+    const url = `https://ast-12-sellcell-server.vercel.app/dashboard/myProduct?email=${user?.email}`;
 
     const {
 

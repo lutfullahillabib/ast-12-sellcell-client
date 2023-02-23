@@ -13,7 +13,7 @@ const MySingleProduct = ({ product, refetch }) => {
         const proceed = window.confirm("Are you sure, you want to cancel this order ?");
 
         if (proceed) {
-            fetch(`http://localhost:5000/products/${id}`, {
+            fetch(`https://ast-12-sellcell-server.vercel.app/products/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
@@ -51,7 +51,7 @@ const MySingleProduct = ({ product, refetch }) => {
     //     console.log(advertiseProduct);
 
 
-    //     fetch('http://localhost:5000/advertise', {
+    //     fetch('https://ast-12-sellcell-server.vercel.app/advertise', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json'
@@ -72,7 +72,7 @@ const MySingleProduct = ({ product, refetch }) => {
 
         // console.log(product)
 
-        fetch(`http://localhost:5000/myAdvertise/${product._id}`, {
+        fetch(`https://ast-12-sellcell-server.vercel.app/myAdvertise/${product._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -97,7 +97,7 @@ const MySingleProduct = ({ product, refetch }) => {
     const removeAdvertise = (product) => {
         const id = product._id;
         // console.log(id);
-        fetch(`http://localhost:5000/myAdvertiseRemove/${id}`, {
+        fetch(`https://ast-12-sellcell-server.vercel.app/myAdvertiseRemove/${id}`, {
             method: "PUT",
         })
             .then((res) => res.json())
@@ -107,7 +107,7 @@ const MySingleProduct = ({ product, refetch }) => {
                     toast.success("Advertise Removed SuccessFully");
                     refetch();
                 }
-                
+
                 else if (data.matchedCount > 0) {
                     console.log(data);
                     toast.error("Already Removed");
